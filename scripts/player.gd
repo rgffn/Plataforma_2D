@@ -95,3 +95,13 @@ func _imput(event):
 			is_jumping = true
 		elif is_on_floor():
 			is_jumping = false
+
+
+func _on_head_collider_body_entered(body):
+	if body.has_method("break_sprite"):
+		body.hitpoints -= 1
+		if body.hitpoints < 1:
+			body.break_sprite()
+		else:
+			body.animation_player.play("hit")
+		

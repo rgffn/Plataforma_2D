@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://g3wl2aonbuad"]
+[gd_scene load_steps=28 format=3 uid="uid://g3wl2aonbuad"]
 
 [ext_resource type="Texture2D" uid="uid://bpikcx4pe5e78" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4u3ep"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_ixmxg"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dnim04y2cb3yo" path="res://assets/mini_ui_buttons/ui_buttons_arrow_right_PRESSED.png" id="17_fwnco"]
 [ext_resource type="Texture2D" uid="uid://bif52xijjqbri" path="res://assets/mini_ui_buttons/ui_buttons_arrow_up_NORMAL.png" id="18_ccs01"]
 [ext_resource type="Texture2D" uid="uid://d1v7cd66kvwb7" path="res://assets/mini_ui_buttons/ui_buttons_arrow_up_PRESSED.png" id="19_vhtrh"]
+[ext_resource type="PackedScene" uid="uid://bmh51mlh0bl5" path="res://prefabs/break_box.tscn" id="20_k36nx"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_tgsid"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -448,3 +449,23 @@ texture_normal = ExtResource("18_ccs01")
 texture_pressed = ExtResource("19_vhtrh")
 action = "ui_accept"
 visibility_mode = 1
+
+[node name="break-box" parent="." instance=ExtResource("20_k36nx")]
+position = Vector2(-7, -53)
+pieces = PackedStringArray("res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-01.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-02.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-03.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-04.png")
+hitpoints = 5
+
+[node name="break-box4" parent="." instance=ExtResource("20_k36nx")]
+position = Vector2(16, -53)
+pieces = PackedStringArray("res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-01.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-02.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-03.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-04.png")
+hitpoints = 2
+
+[node name="break-box3" parent="." instance=ExtResource("20_k36nx")]
+position = Vector2(105, -133)
+pieces = PackedStringArray("res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-01.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-02.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-03.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-04.png")
+hitpoints = 1
+
+[node name="break-box2" parent="." instance=ExtResource("20_k36nx")]
+position = Vector2(169, -106)
+pieces = PackedStringArray("res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-01.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-02.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-03.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-04.png")
+hitpoints = 7

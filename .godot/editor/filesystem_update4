@@ -1,2 +1,12 @@
-res://actors/player.tscn
+res://Levels.tscn
 res://shaders/movement_clouds.gdshader
+res://actors/player.tscn
+res://prefabs/moving_platform.tscn
+res://prefabs/coin.tscn
+res://actors/enemy.tscn
+res://prefabs/hitbox.tscn
+res://scripts/box_pieces.gd
+res://prefabs/break_box.tscn
+res://scripts/break_box.gd
+res://prefabs/box_pieces.tscn
+res://scripts/player.gd
