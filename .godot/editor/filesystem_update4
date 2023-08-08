@@ -14,3 +14,10 @@ res://prefabs/dialog_box.tscn
 res://scripts/dialog_box.gd
 res://singletons/dialog_manager.gd
 res://scripts/warning_sign.gd
+res://scripts/box_pieces.gd
+res://scripts/enemy.gd
+res://hitbox.gd
+res://scripts/moving_platform.gd
+res://scripts/world_01.gd
+res://scripts/coin_rigid.gd
+res://scripts/spikes_area.gd
