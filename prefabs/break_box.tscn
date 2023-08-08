@@ -1,38 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmh51mlh0bl5"]
+[gd_scene load_steps=9 format=3 uid="uid://bmh51mlh0bl5"]
 
 [ext_resource type="Script" path="res://scripts/break_box.gd" id="1_5lv8o"]
 [ext_resource type="Texture2D" uid="uid://bhux2v6p6gvta" path="res://assets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_7rp53"]
+[ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="2_himrd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dpl03"]
+resource_local_to_scene = true
+shader = ExtResource("2_himrd")
+shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cl407"]
 size = Vector2(16, 16)
-
-[sub_resource type="Animation" id="Animation_ma7h7"]
-resource_name = "hit"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("texture:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("texture:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.662745, 0, 0.109804, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_mryif"]
 length = 0.001
@@ -60,6 +38,58 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:material:shader_parameter/active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ma7h7"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("texture:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.662745, 0, 0.109804, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:material:shader_parameter/active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3138a"]
 _data = {
@@ -74,6 +104,7 @@ script = ExtResource("1_5lv8o")
 pieces = PackedStringArray("", "", "", "")
 
 [node name="texture" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dpl03")
 texture = ExtResource("1_7rp53")
 region_enabled = true
 region_rect = Rect2(16, 16, 16, 16)
@@ -86,3 +117,6 @@ shape = SubResource("RectangleShape2D_cl407")
 libraries = {
 "": SubResource("AnimationLibrary_3138a")
 }
+
+[node name="spawncoin" type="Marker2D" parent="."]
+position = Vector2(0, -8)
