@@ -7,3 +7,6 @@ res://prefabs/box_pieces.tscn
 res://prefabs/coin_rigid.tscn
 res://scripts/break_box.gd
 res://scripts/coin.gd
+res://prefabs/falling_platform.tscn
+res://scripts/falling_platform.gd
+res://scripts/player.gd
