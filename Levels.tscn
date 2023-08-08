@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://g3wl2aonbuad"]
+[gd_scene load_steps=32 format=3 uid="uid://g3wl2aonbuad"]
 
 [ext_resource type="Texture2D" uid="uid://bpikcx4pe5e78" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4u3ep"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_ixmxg"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://d1v7cd66kvwb7" path="res://assets/mini_ui_buttons/ui_buttons_arrow_up_PRESSED.png" id="19_vhtrh"]
 [ext_resource type="PackedScene" uid="uid://bmh51mlh0bl5" path="res://prefabs/break_box.tscn" id="20_k36nx"]
 [ext_resource type="PackedScene" uid="uid://q6ngg6r4j8x8" path="res://prefabs/falling_platform.tscn" id="21_c55ue"]
+[ext_resource type="Script" path="res://scripts/warning_sign.gd" id="22_6mhvo"]
+[ext_resource type="Texture2D" uid="uid://bv1b3yw2xew63" path="res://assets/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="23_steqg"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_tgsid"]
 tile_data = PackedInt32Array(0, 327681, 1)
@@ -272,6 +274,9 @@ pattern_2 = SubResource("TileMapPattern_2bdty")
 shader = ExtResource("6_a0r1m")
 shader_parameter/move_speed = 0.05
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kglhl"]
+size = Vector2(32, 16)
+
 [node name="World-01" type="Node2D"]
 position = Vector2(191, 129)
 script = ExtResource("1_ixmxg")
@@ -445,6 +450,7 @@ position = Vector2(153, -53)
 position = Vector2(390, -65)
 
 [node name="controls" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ui_left" type="TouchScreenButton" parent="controls"]
 position = Vector2(8, 123)
@@ -488,6 +494,23 @@ pieces = PackedStringArray("res://assets/Seasonal Tilesets/5 - Misc. universal t
 hitpoints = 5
 
 [node name="break-box" parent="." instance=ExtResource("20_k36nx")]
-position = Vector2(-72, -65)
+position = Vector2(-119, -201)
 pieces = PackedStringArray("res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-01.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-02.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-03.png", "res://assets/Seasonal Tilesets/5 - Misc. universal tiles/brick-piece-04.png")
 hitpoints = 5
+
+[node name="warning_sign" type="Node2D" parent="."]
+position = Vector2(-71, -25)
+script = ExtResource("22_6mhvo")
+
+[node name="texture" type="Sprite2D" parent="warning_sign"]
+visible = false
+position = Vector2(0, -15)
+texture = ExtResource("23_steqg")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="area_sign" type="Area2D" parent="warning_sign"]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="warning_sign/area_sign"]
+shape = SubResource("RectangleShape2D_kglhl")

@@ -10,3 +10,7 @@ res://scripts/coin.gd
 res://prefabs/falling_platform.tscn
 res://scripts/falling_platform.gd
 res://scripts/player.gd
+res://prefabs/dialog_box.tscn
+res://scripts/dialog_box.gd
+res://singletons/dialog_manager.gd
+res://scripts/warning_sign.gd
