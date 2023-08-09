@@ -9,3 +9,5 @@ res://scripts/hud_manager.gd
 res://singletons/globals.gd
 res://scripts/coin.gd
 res://scripts/enemy.gd
+res://scripts/player.gd
+res://scripts/world_01.gd

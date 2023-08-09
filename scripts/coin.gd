@@ -14,7 +14,7 @@ func _process(delta):
 func _on_body_entered(body):
 	$anim.play("collect")
 	#evitar duppar moeda
-	await $collision.call_deferred("queue_free()")
+	$collision.call_deferred("queue_free()")
 	Globals.coins += coins
 	print(Globals.coins)
 	

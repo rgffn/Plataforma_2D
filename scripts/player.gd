@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 200.0
 const JUMP_FORCE = -400.0
 
@@ -8,13 +7,13 @@ const JUMP_FORCE = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping := false
 var is_hurt := false
-var  player_life := 10
 var knockback_vector := Vector2.ZERO
 var direction
 
 @onready var animation:= $anim as AnimatedSprite2D
 @onready var remote_transform := $remote as RemoteTransform2D
 
+signal player_has_died() 
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -60,10 +59,11 @@ func follow_camera(camera):
 	remote_transform.remote_path = camera_path
 	
 func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
-	if player_life >0:
-		player_life -= 1
+	if Globals.player_life > 0:
+		Globals.player_life -= 1
 	else:
 		queue_free()
+		emit_signal("player_has_died")
 	
 	if knockback_force != Vector2.ZERO:
 		knockback_vector = knockback_force
