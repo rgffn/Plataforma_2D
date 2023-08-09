@@ -1,10 +1,14 @@
+Label
+TextureRect
+HBoxContainer
+MarginContainer
+Control
+CanvasLayer
 CollisionShape2D
 Sprite2D
 Area2D
 Node2D
 Timer
-Label
-MarginContainer
 NinePatchRect
 AnimationPlayer
 AnimatableBody2D
@@ -13,7 +17,6 @@ Marker2D
 VisibleOnScreenNotifier2D
 CharacterBody2D
 TouchScreenButton
-CanvasLayer
 RayCast2D
 RemoteTransform2D
 AnimatedSprite2D

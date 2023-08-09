@@ -21,10 +21,10 @@ func break_sprite():
 func create_coin():
 	var coin = coin_instance.instantiate()
 	get_parent().add_child(coin)
-	print("Coin added as child:", coin.is_inside_tree())
+	#print("Coin adicionada como filho:", coin.is_inside_tree())
 	coin.global_position = spawncoin.global_position
-	print("Spawncin global position:", spawncoin.global_position)
-	print("Coin global position:", coin.global_position)
+	#print("Spawn_coin global position:", spawncoin.global_position)
+	#print("Coin global position:", coin.global_position)
 	coin.apply_impulse(Vector2(randi_range(-50,50),-150))
 	
 	
