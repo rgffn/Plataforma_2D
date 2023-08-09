@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://g3wl2aonbuad"]
+[gd_scene load_steps=43 format=3 uid="uid://g3wl2aonbuad"]
 
 [ext_resource type="Texture2D" uid="uid://bpikcx4pe5e78" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_4u3ep"]
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_ixmxg"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://scripts/spikes_area.gd" id="24_3mhh7"]
 [ext_resource type="Texture2D" uid="uid://dpb4krsj2jj0n" path="res://assets/Seasonal Tilesets/5 - Misc. universal tiles/Spike.png" id="24_ir5qn"]
 [ext_resource type="Texture2D" uid="uid://dgfvrh8yg3sch" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin-Sprites/00_Coin-Sprites.png" id="26_8qpa1"]
+[ext_resource type="Script" path="res://scripts/hud_manager.gd" id="26_omllp"]
 [ext_resource type="Texture2D" uid="uid://byt5ar30rr4lk" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin-Sprites/01_Coin-Sprites.png" id="27_wb3or"]
 [ext_resource type="Texture2D" uid="uid://dn4vcy65s8hmt" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin-Sprites/02_Coin-Sprites.png" id="28_2t5po"]
 [ext_resource type="Texture2D" uid="uid://bstuh08nhmt8u" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin-Sprites/03_Coin-Sprites.png" id="29_i8ay7"]
@@ -290,6 +291,7 @@ size = Vector2(15, 8)
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_8pn3h"]
 frames = 4
+speed_scale = 3.0
 frame_0/texture = ExtResource("26_8qpa1")
 frame_1/texture = ExtResource("27_wb3or")
 frame_1/duration = 1.0
@@ -461,15 +463,19 @@ editor_draw_drag_margin = true
 
 [node name="enemy" parent="enemies" instance=ExtResource("12_iujb1")]
 position = Vector2(329, -89)
+enemy_score = 1000
 
 [node name="enemy3" parent="enemies" instance=ExtResource("12_iujb1")]
 position = Vector2(105, -85)
+enemy_score = 300
 
 [node name="enemy4" parent="enemies" instance=ExtResource("12_iujb1")]
 position = Vector2(513, -53)
+enemy_score = 500
 
 [node name="enemy5" parent="enemies" instance=ExtResource("12_iujb1")]
 position = Vector2(153, -53)
+enemy_score = 700
 
 [node name="enemy2" parent="enemies" instance=ExtResource("12_iujb1")]
 position = Vector2(390, -65)
@@ -563,6 +569,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("26_omllp")
 
 [node name="container" type="MarginContainer" parent="HUD/control"]
 layout_mode = 1

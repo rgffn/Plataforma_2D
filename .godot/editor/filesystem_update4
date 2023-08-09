@@ -5,3 +5,7 @@ res://Levels.tscn
 res://actors/player.tscn
 res://prefabs/dialog_box.tscn
 res://prefabs/coin_rigid.tscn
+res://scripts/hud_manager.gd
+res://singletons/globals.gd
+res://scripts/coin.gd
+res://scripts/enemy.gd
